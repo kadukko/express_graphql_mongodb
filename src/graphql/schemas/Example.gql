@@ -1,13 +1,13 @@
 type Example {
-    id: Int
+    _id: ID
     label: String
     active: Boolean
 }
 
 type Query {
-    getExample: Example
+    getExamples: [Example!]
 }
 
 type Mutation {
-    setExample(text: String!): Boolean
+    createExample(label: String!): Boolean
 }
