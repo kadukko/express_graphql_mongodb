@@ -1,0 +1,13 @@
+type Example {
+    id: Int
+    label: String
+    active: Boolean
+}
+
+type Query {
+    getExample: Example
+}
+
+type Mutation {
+    setExample(text: String!): Boolean
+}
