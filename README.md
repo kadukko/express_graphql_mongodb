@@ -3,7 +3,7 @@
 Node Server Template
 with Express + Apollo GraphQL + Mongoose
 
-##Dev dependencies
+#### Dev dependencies
 
 Eslint + Prettier
 Nodemon
