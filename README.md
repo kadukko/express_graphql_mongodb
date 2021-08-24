@@ -5,6 +5,6 @@ with Express + Apollo GraphQL + Mongoose
 
 #### Dev dependencies
 
-Eslint + Prettier
-Nodemon
-Babel
+- Eslint + Prettier
+- Nodemon
+- Babel
