@@ -1,13 +1,13 @@
 # express_graphql_mongodb
 
-Node Server Template
+#### Node Server Template  
 with Express + Apollo GraphQL + Mongoose
 
 #### Node scripts
 
-npm run dev
-npm run build
-npm run start
+npm run dev  
+npm run build  
+npm run start  
 
 #### Dev dependencies
 
