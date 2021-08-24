@@ -6,8 +6,11 @@ import http from "http";
 import { ApolloServer } from "apollo-server-express";
 import resolvers from "./graphql/resolvers";
 import typeDefs from "./graphql/typeDefs";
+import database from "./database";
 
 async function start() {
+    await database.start();
+
     const app = express();
 
     const corsOptions = {
@@ -26,6 +29,10 @@ async function start() {
         resolvers,
         typeDefs,
         context: ({ req, res }) => {
+            if (!database.isConnected()) {
+                return res.status(500).send({ error: "DATABASE_OFFLINE" });
+            }
+
             return {};
         },
     });

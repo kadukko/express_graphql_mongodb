@@ -22,6 +22,9 @@ const EnvironmentModule = () => ({
     getBaseUrl() {
         return this.get("BASE_URL") || "http://localhost:3000";
     },
+    getMongoUri() {
+        return this.get("MONGO_URI");
+    },
 });
 
 export default EnvironmentModule();
