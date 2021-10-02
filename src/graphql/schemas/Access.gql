@@ -1,0 +1,9 @@
+type Access {
+    _id: ID
+    username: String
+    active: Boolean
+}
+
+type Mutation {
+    login(username: String!, password: String!): Boolean
+}

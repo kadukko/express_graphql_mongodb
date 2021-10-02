@@ -7,6 +7,7 @@ import { ApolloServer } from "apollo-server-express";
 import resolvers from "./graphql/resolvers";
 import typeDefs from "./graphql/typeDefs";
 import database from "./database";
+import CookieModule from "./modules/CookieModule";
 
 async function start() {
     await database.start();
@@ -23,6 +24,8 @@ async function start() {
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
 
+    CookieModule.applyMiddleware(app);
+
     const httpServer = http.createServer(app);
 
     const apolloServer = new ApolloServer({
@@ -33,7 +36,10 @@ async function start() {
                 return res.status(500).send({ error: "DATABASE_OFFLINE" });
             }
 
-            return {};
+            return {
+                auth: req.auth,
+                ipAddress: req.ip,
+            };
         },
     });
 
